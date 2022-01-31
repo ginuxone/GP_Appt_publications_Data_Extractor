@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "5WzOiqZFWLC3sBC1FdKL65kGDzKlvKoIsA0w5ntG+XfnACg7YCwLKOJWTaIdWZsUz5P2bM813mqdtpsULBpcog==",
+  "success": true,
+  "projectFilePath": "D:\\Source\\GiadaExcelDataParser\\GiadaExcelDataParser.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ginit\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+  ],
+  "logs": []
+}
