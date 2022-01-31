@@ -32,9 +32,20 @@ namespace GiadaExcelDataParser
             foreach (String path in Directory.GetFiles(Directory.GetCurrentDirectory() + "\\FileInput"))
             {
                 Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(path, ReadOnly: true);
-                Excel.Worksheet xlWorksheet = xlWorkbook.Worksheets[10];
                 //Getting Date
                 String dateTime = GetDateTime(xlWorkbook.Worksheets[1]);
+                //Getting table 3c
+                String tableName;
+                Excel.Worksheet xlWorksheet = xlWorkbook.Worksheets[10];
+                tableName = xlWorksheet.Name;
+                if (tableName!="Table 3c")
+                {
+                    xlWorksheet = xlWorkbook.Worksheets[11];
+                    if(tableName!= "Table 3c")
+                    {
+                        xlWorksheet = xlWorkbook.Worksheets[12];
+                    }
+                }
                 //Parsing Data and feeding the dataset
                 Console.WriteLine("\tParsing Data:" + dateTime);
                 GetRowData(xlWorksheet, data,dateTime);
@@ -47,21 +58,21 @@ namespace GiadaExcelDataParser
         {
             bool notEmpty = true;
             bool firstRow = true;
-            int i = 13;
+            int row = 13;
             do
             {
-                String t = ((Excel.Range)worksheet.Cells[i,1]).Value+"";
+                String t = ((Excel.Range)worksheet.Cells[row,1]).Value+"";
                 List<String> tmpList = new List<string>();
                 //CurrentRow-Serve a evitare l'errore riga 13 inesistente in alcuni file
                 if (firstRow && t!="")
                 {
                     if (t == magicWordToFind)
                     {
-                        for (int r = 1; r < 14; r++)
+                        for (int col = 1; col < 14; col++)
                         {
-                            String cell= ((Excel.Range)worksheet.Cells[i, r]).Value+"";
-                            if(cell!=null && cell!="")
-                                tmpList.Add((String)cell);
+                            var cell= ((Excel.Range)worksheet.Cells[row, col]).Value;
+                            if(cell!=null)
+                                tmpList.Add(Convert.ToString(cell));
                         }
                         tmpList.Add(dateTime.Split(',')[0]);
                         tmpList.Add(dateTime.Split(',')[1]);
@@ -74,7 +85,7 @@ namespace GiadaExcelDataParser
                     {
                         for (int r = 1; r < 14; r++)
                         {
-                            String cell = ((Excel.Range)worksheet.Cells[i, r]).Value+"";
+                            String cell = ((Excel.Range)worksheet.Cells[row, r]).Value+"";
                             if (cell != null && cell != "")
                                 tmpList.Add((String)cell);
                         }
@@ -83,8 +94,8 @@ namespace GiadaExcelDataParser
                         data.Add(tmpList);
                     }
                 }
-                i++;
-                String nextT= ((Excel.Range)worksheet.Cells[i, 1]).Value+"";
+                row++;
+                String nextT= ((Excel.Range)worksheet.Cells[row, 1]).Value+"";
                 if (nextT == null || nextT == "")//NextRow-Serve a controllare la fine del dataset
                     notEmpty = false;
             } while (notEmpty);
@@ -131,9 +142,14 @@ namespace GiadaExcelDataParser
         {
             //GettingDateTime
             String dateTime = ((Excel.Range)tmpWs.Cells[9, 1]).Value + "";
-            if (dateTime.Length < 4)
+            String dateTIme = dateTime.Replace(" ", "");
+            if (dateTime.Split(",").Length<=1)
             {
                 dateTime = ((Excel.Range)tmpWs.Cells[10, 1]).Value + "";
+                if (dateTime.Replace(" ", "").Split(",").Length <= 1)
+                {
+                    dateTime = ((Excel.Range)tmpWs.Cells[11, 1]).Value + "";
+                }
             }
             String month = dateTime.Replace(" ", "").Split(",")[0];
             String year = dateTime.Replace(" ", "").Split(",")[1];

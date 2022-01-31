@@ -22,3 +22,4 @@ D:\Source\GiadaExcelDataParser\obj\Release\netcoreapp3.1\GiadaExcelDataParser.cs
 D:\Source\GiadaExcelDataParser\obj\Release\netcoreapp3.1\GiadaExcelDataParser.dll
 D:\Source\GiadaExcelDataParser\obj\Release\netcoreapp3.1\GiadaExcelDataParser.pdb
 D:\Source\GiadaExcelDataParser\obj\Release\netcoreapp3.1\GiadaExcelDataParser.genruntimeconfig.cache
+D:\Source\GiadaExcelDataParser\obj\Release\netcoreapp3.1\GiadaExcelDataParser.csprojAssemblyReference.cache

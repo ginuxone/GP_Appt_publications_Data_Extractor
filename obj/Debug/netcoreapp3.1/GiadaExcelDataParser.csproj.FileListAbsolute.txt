@@ -20,6 +20,3 @@ D:\Source\GiadaExcelDataParser\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.
 D:\Source\GiadaExcelDataParser\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Excel.dll
 D:\Source\GiadaExcelDataParser\obj\Debug\netcoreapp3.1\Interop.ExcelAdaptorLib.dll
 D:\Source\GiadaExcelDataParser\obj\Debug\netcoreapp3.1\GiadaExcelDataParser.csproj.ResolveComReference.cache
-D:\Source\GiadaExcelDataParser\bin\Debug\netcoreapp3.1\FileInput\GP_Appt_Publication_February-2019.xlsx
-D:\Source\GiadaExcelDataParser\bin\Debug\netcoreapp3.1\FileInput\GP_APPT_Publication_April_2019.xlsx
-D:\Source\GiadaExcelDataParser\bin\Debug\netcoreapp3.1\FileInput\GP_Appt_Publication_March_2019.xlsx

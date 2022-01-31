@@ -49,16 +49,4 @@
     <Folder Include="FileOutput\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="FileInput\GP_APPT_Publication_April_2019.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="FileInput\GP_Appt_Publication_February-2019.xlsx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="FileInput\GP_Appt_Publication_March_2019.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
